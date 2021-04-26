@@ -114,7 +114,7 @@ class EllipticCurve:
 		# Cipher text == (k*G,Pm+k*pub)
 		return self.multiply(r, self.G), self.add(Pm, self.multiply(r, pub))
 
-	def decrypt(self, cipher, pri):
+	def decrypt(self, cipher, private_key):
 		# ElGamal
 		def uninsert_plain(Pm):
 			# Extract plain from a point.
@@ -124,24 +124,24 @@ class EllipticCurve:
 			return int2bytes(plain)
 
 		# Cipher text == (k*G,Pm+k*pub)
-		# Pm=Pm+k*pub-pri*k*G=Pm+k*pri*G-pri*k*G
+		# Pm=Pm+k*pub-private_key*k*G=Pm+k*private_key*G-private_key*k*G
 		Pm = self.add(cipher[1],
-		              self.invert(self.multiply(pri, cipher[0])))  # Point after insertion.
+		              self.invert(self.multiply(private_key, cipher[0])))  # Point after insertion.
 		return uninsert_plain(Pm)
 
-	def get_signature(self, plain_hash: bytes, pri):
+	def get_signature(self, plain_hash: bytes, private_key):
 		# ECDSA
 		r = random.randint(1, self.n)
-		s = (r - bytes2int(plain_hash) * pri) % self.n
+		s = (r - bytes2int(plain_hash) * private_key) % self.n
 		if s == 0:
 			# Recalculate
-			return self.get_signature(plain_hash, pri)
+			return self.get_signature(plain_hash, private_key)
 		return (r, s)
 
 	def is_valid_signature(self, plain_hash: bytes, signature, pub):
 		# ECDSA
 		r, s = signature
-		# s*G+hash*pri*G == (r-hash*pri)*G+hash*pri*G == r*G
+		# s*G+hash*private_key*G == (r-hash*private_key)*G+hash*private_key*G == r*G
 		if self.add(self.multiply(s, self.G), self.multiply(bytes2int(plain_hash), pub)) == self.multiply(r, self.G):
 			return True
 		return False
