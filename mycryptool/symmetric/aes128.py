@@ -151,8 +151,8 @@ def inc_bytes(a):
 
 def pad(plaintext):
 	"""
-	Pads the given plaintext with PKCS#7 padding to a multiple of 16 bytes.
-	Note that if the plaintext size is a multiple of 16,
+	Pads the given data with PKCS#7 padding to a multiple of 16 bytes.
+	Note that if the data size is a multiple of 16,
 	a whole block will be added.
 	"""
 	padding_len = 16 - (len(plaintext) % 16)
@@ -231,7 +231,7 @@ class AES:
 
 	def encrypt_block(self, plaintext):
 		"""
-		Encrypts a single block of 16 byte long plaintext.
+		Encrypts a single block of 16 byte long data.
 		"""
 		assert len(plaintext) == 16
 
@@ -275,7 +275,7 @@ class AES:
 
 	def encrypt_cbc(self, plaintext, iv):
 		"""
-		Encrypts `plaintext` using CBC mode and PKCS#7 padding, with the given
+		Encrypts `data` using CBC mode and PKCS#7 padding, with the given
 		initialization vector (iv).
 		"""
 		assert len(iv) == 16
@@ -311,7 +311,7 @@ class AES:
 
 	def encrypt_pcbc(self, plaintext, iv):
 		"""
-		Encrypts `plaintext` using PCBC mode and PKCS#7 padding, with the given
+		Encrypts `data` using PCBC mode and PKCS#7 padding, with the given
 		initialization vector (iv).
 		"""
 		assert len(iv) == 16
@@ -353,7 +353,7 @@ class AES:
 
 	def encrypt_cfb(self, plaintext, iv):
 		"""
-		Encrypts `plaintext` with the given initialization vector (iv).
+		Encrypts `data` with the given initialization vector (iv).
 		"""
 		assert len(iv) == 16
 
@@ -387,7 +387,7 @@ class AES:
 
 	def encrypt_ofb(self, plaintext, iv):
 		"""
-		Encrypts `plaintext` using OFB mode initialization vector (iv).
+		Encrypts `data` using OFB mode initialization vector (iv).
 		"""
 		assert len(iv) == 16
 
@@ -421,7 +421,7 @@ class AES:
 
 	def encrypt_ctr(self, plaintext, iv):
 		"""
-		Encrypts `plaintext` using CTR mode with the given nounce/IV.
+		Encrypts `data` using CTR mode with the given nounce/IV.
 		"""
 		assert len(iv) == 16
 
@@ -475,7 +475,7 @@ def get_key_iv(password, salt, workload=100000):
 
 def encrypt(key, plaintext, workload=100000):
 	"""
-	Encrypts `plaintext` with `key` using AES-128 (CBC mode), an HMAC to verify integrity,
+	Encrypts `data` with `key` using AES-128 (CBC mode), an HMAC to verify integrity,
 	and PBKDF2 to stretch the given key.
 	The exact algorithm is specified in the module docstring.
 	"""

@@ -1,13 +1,14 @@
 from mycryptool.hash import md5, sha1
-from mycryptool.symmetric import aes128
+from mycryptool.symmetric import aes128, des
 from mycryptool.asymmetric import elliptic_curve, rsa
 from mycryptool.tools import *
+from bitarray import bitarray
 
-print(md5.md5(b'basdfasdfadsf'))
-print(sha1.sha1(b'basdfasdfadsf'))
-
-data = b'Jessie Pinkman in the house'
-key = 'key'
+# print(md5.md5(b'basdfasdfadsf'))
+# print(sha1.sha1(b'basdfasdfadsf'))
+#
+# data = b'Jessie Pinkman in the house'
+# key = 'key'
 # cipher = aes128.encrypt(key, data)
 # print(cipher)
 # print(aes128.decrypt(key, cipher))
@@ -34,3 +35,14 @@ key = 'key'
 # sig = rsa.get_signature(md5.md5(data), pri)
 # print(sig)
 # print(rsa.is_valid_signature(md5.md5(data), sig, pub))
+
+# print(xor_bytes(b'66666666', b'chopperc'))
+key = b'chopperc'
+iv = b'66666666'
+
+data = b'Yo Yo Yo, Jessie Pinkman in the house!!!'
+# data = b'wowowowoeeeeeeee'
+cipher = des.des_cbc(data, iv, key, True)
+print(cipher)
+deciphered = des.des_cbc(cipher, iv, key, False)
+print(deciphered)

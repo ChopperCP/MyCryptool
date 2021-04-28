@@ -176,3 +176,16 @@ def generate_prime(bit_length: 'int >=2'):
 	while not is_prime(p):
 		p += 2
 	return p
+
+
+def xor_bytes(lhs: bytes, rhs: bytes) -> bytes:
+	if len(lhs) != len(rhs):
+		raise Exception("Both input bytes should have the same length.")
+
+	from bitarray import bitarray
+	lhs_arr = bitarray()
+	rhs_arr = bitarray()
+	lhs_arr.frombytes(lhs)
+	rhs_arr.frombytes(rhs)
+
+	return (lhs_arr ^ rhs_arr).tobytes()
