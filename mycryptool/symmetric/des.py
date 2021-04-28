@@ -1,6 +1,6 @@
 import struct
 from typing import List
-from mycryptool.tools import xor_bytes
+from ..tools import xor_bytes
 
 from bitarray import bitarray
 from bitarray.util import ba2int

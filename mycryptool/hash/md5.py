@@ -8,7 +8,7 @@ from math import (
 
 from bitarray import bitarray
 
-from mycryptool.tools import int2bytes
+from ..tools import int2bytes
 
 
 class MD5Buffer(Enum):

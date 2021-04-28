@@ -1,5 +1,5 @@
 import random
-from mycryptool.tools import *
+from ..tools import *
 
 
 class EllipticCurve:

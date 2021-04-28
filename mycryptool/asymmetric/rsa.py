@@ -1,5 +1,4 @@
-from mycryptool.tools import *
-import random
+from ..tools import *
 
 
 def encrypt(plaintext: bytes, public_key: 'Tuple (e, n)'):

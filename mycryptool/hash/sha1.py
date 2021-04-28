@@ -1,4 +1,4 @@
-from mycryptool.tools import int2bytes
+from ..tools import int2bytes
 import binascii
 
 

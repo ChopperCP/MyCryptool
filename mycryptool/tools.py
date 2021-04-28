@@ -169,12 +169,14 @@ def is_prime(n, k=5):
 
 def generate_prime(bit_length: 'int >=2'):
 	if bit_length >= 1024:
-		print("[!] Generating big prime, it may take a while...")
+		print("[!] Generating big prime, it may take a while...", end='')
 	import random
 
 	p = random.randint(2 ** (bit_length - 1) + 1, 2 ** bit_length) | 1  # generate only odd numbers
 	while not is_prime(p):
 		p += 2
+
+	print("Done")
 	return p
 
 
