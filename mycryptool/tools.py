@@ -167,8 +167,8 @@ def is_prime(n, k=5):
 	return True
 
 
-def generate_prime(bit_length: 'int >=2'):
-	if bit_length >= 1024:
+def generate_prime(bit_length: 'int >=2', is_verbose: bool = True):
+	if bit_length >= 1024 and is_verbose:
 		print("[!] Generating big prime, it may take a while...", end='')
 	import random
 
