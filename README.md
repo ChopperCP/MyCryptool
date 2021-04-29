@@ -4,11 +4,26 @@ ___
 
 A python package that include commonly used cryptographic algorithm and tools.
 
+This package is designed as a teaching tool, written in pure python. It means that it probably won't be as efficient as
+other similar python libraries which use C for low-level implementation and provide the same if not more functions.
+However, the author try to write clean and simple code to demonstrate how a cryptography algorithm works.
+
+GitHub repository : https://github.com/ChopperCP/MyCryptool
+
 # Install
 
 ___
 
     pip install mycrptool
+
+### Problem with bitarray
+
+This package use `bitarray` as an external library. When installing this library, you may fail to compile.
+
+If that's the case, you can go to https://www.lfd.uci.edu/~gohlke/pythonlibs/ to download a pre-compiled version
+of `bitarray`, and then simply run:
+
+    pip install downloaded-precompiled-file.whl
 
 # Dependencies
 
@@ -20,7 +35,8 @@ Here are external libraries that is used in this package.
 # Usage
 
 ___
-This package consists of 4 parts: symmetric, asymetric, hash, and tools.  
+This package consists of 4 parts: symmetric, asymetric, hash, and tools.
+
 To import all modules, it is recommanded to run `from mycryptool import *`
 
 ## symmetric
@@ -68,7 +84,8 @@ deciphered = symmetric.des.des_ecb(cipher, key, False)  # ECB
 ## asymmetric
 
 ***
-This module includes 2 asymmetric algorithms: RSA and Elliptic Curve.  
+This module includes 2 asymmetric algorithms: RSA and Elliptic Curve.
+
 Supported Features: encrypt, decrypt, generate signature, and validate signature.
 
 ### RSA
@@ -103,7 +120,8 @@ asymmetric.rsa.is_valid_signature(hash.md5.md5(data), signature, pub)
 
 ### Elliptic Curve
 
-As for now, this module only supports 1 curve: ecp256k1.  
+As for now, this module only supports 1 curve: ecp256k1.
+
 However, you can Implement your own curve derived from the `EllipticCurve` class.
 
 #### Implement customize curve:
