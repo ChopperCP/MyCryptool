@@ -5,8 +5,8 @@
 from mycryptool import *
 from bitarray import bitarray
 
-# print(md5.md5(b'basdfasdfadsf'))
-# print(sha1.sha1(b'basdfasdfadsf'))
+print(hash.md5.md5(b'basdfasdfadsf'))
+print(hash.sha1.sha1(b'basdfasdfadsf'))
 #
 data = b'Jessie Pinkman in the house'
 key = 'key'
@@ -14,15 +14,15 @@ key = 'key'
 # print(cipher)
 # print(aes128.decrypt(key, cipher))
 #
-ec = asymmetric.elliptic_curve.ecp256k1()
-pri = ec.get_private_key()
-pub = ec.get_public_key(pri)
+# ec = asymmetric.elliptic_curve.ecp256k1()
+# pri = ec.get_private_key()
+# pub = ec.get_public_key(pri)
 # ec_cipher = ec.encrypt(data, pub)
 # print(ec_cipher)
 # print(ec.decrypt(ec_cipher, pri))
 #
-sig = ec.get_signature(hash.sha1.sha1(data), pri)
-print(ec.is_valid_signature(hash.sha1.sha1(data), sig, pub))
+# sig = ec.get_signature(hash.sha1.sha1(data), pri)
+# print(ec.is_valid_signature(hash.sha1.sha1(data), sig, pub))
 #
 # print(is_prime(65537))
 

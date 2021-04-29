@@ -149,3 +149,21 @@ signature = ec.get_signature(hash.sha1.sha1(data), pri)
 ```python
 ec.is_valid_signature(hash.sha1.sha1(data), signature, pub)
 ```
+
+## hash
+
+___
+
+### md5
+
+This module provide 2 hashing algorithm: MD5 and SHA-1.
+
+```python
+    hash.md5.md5(b'basdfasdfadsf')
+```
+
+### sha1
+
+```python
+    hash.sha1.sha1(b'basdfasdfadsf')
+```
