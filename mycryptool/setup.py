@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 	name="mycryptool",
-	version="1.0",
+	version="1.1",
 	author="ChopperCP",
 	author_email="568624486@qq.com",
 	description="A python package that include commonly used cryptographic algorithm and tools.",
