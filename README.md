@@ -8,7 +8,7 @@ This package is designed as a teaching tool, written in pure python. It means th
 other similar python libraries which use C for low-level implementation and provide the same if not more functions.
 However, the author try to write clean and simple code to demonstrate how a cryptography algorithm works.
 
-GitHub repository : https://github.com/ChopperCP/MyCryptool
+GitHub repository (and newest documentation) : https://github.com/ChopperCP/MyCryptool
 
 # Install
 
